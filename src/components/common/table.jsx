@@ -5,8 +5,7 @@ import TableBody from "./tableBody";
 // interface
 // columns, sortColumn, data, onSort
 
-const Table = props => {
-  const { columns, sortColumn, data, onSort } = props;
+const Table = ({ columns, sortColumn, data, onSort }) => {
   return (
     <table className="table">
       <TableHeader columns={columns} sortColumn={sortColumn} onSort={onSort} />
