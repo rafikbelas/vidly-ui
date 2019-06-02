@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import _ from "lodash";
 
 // interface
@@ -7,7 +8,11 @@ class TableBody extends Component {
   renderCell = (item, column) => {
     if (column.content) return column.content(item);
 
-    return _.get(item, column.path);
+    let cell = _.get(item, column.path);
+
+    if (column.link) cell = <Link to={`/movies/${item._id}`}>{cell}</Link>;
+
+    return cell;
   };
 
   createKey = (item, column) => {
